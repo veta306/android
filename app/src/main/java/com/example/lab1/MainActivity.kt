@@ -4,16 +4,14 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.ViewModelProvider
-//import androidx.activity.viewModels
 
 class MainActivity : AppCompatActivity() {
 
-    //private var viewModel by viewModels<TextViewModel>()
-    private lateinit var viewModel: TextViewModel
+    private val viewModel by viewModels<TextViewModel>()
     private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,16 +23,8 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        viewModel = ViewModelProvider(this)[TextViewModel::class.java]
         textView = findViewById(R.id.textView)
-        findViewById<Button>(R.id.button).setOnClickListener {
-            viewModel.updateText()
-            textView.text = viewModel.text
-        }
+        viewModel.text.observe(this) { value -> textView.text = value }
+        findViewById<Button>(R.id.button).setOnClickListener { viewModel.updateText() }
     }
-
-    ///override fun onResume() {
-    ///    super.onResume()
-    ///    textView.text = viewModel.text
-    ///}
 }
