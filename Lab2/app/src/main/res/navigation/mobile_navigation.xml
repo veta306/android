@@ -22,4 +22,17 @@
         android:name="com.example.lab2.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_custom"
+        android:name="com.example.lab2.ui.custom.CustomFragment"
+        android:label="@string/menu_custom"
+        tools:layout="@layout/fragment_custom" />
+
+    <activity
+        android:id="@+id/nav_tabbed_activity"
+        android:name="com.example.lab2.TabbedActivity"
+        android:label="Tabbed Activity"
+        tools:layout="@layout/activity_tabbed" />
+
 </navigation>

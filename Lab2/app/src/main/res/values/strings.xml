@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">lab2</string>
+    <string name="app_name">Lab2</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -10,4 +10,11 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_custom">Custom</string>
+    <string name="menu_tabbed_activity">Tabbed Activity</string>
+    <string name="title_activity_tabbed">TabbedActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_button">Go to Main Activity</string>
+    <string name="mail_button">Mail</string>
 </resources>
