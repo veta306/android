@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.transition.Visibility
 import com.example.lab2.MainActivity
 import com.example.lab2.databinding.FragmentTabBinding
 
@@ -45,13 +46,20 @@ class TabFragment : Fragment() {
             textView.text = it
         })
 
-        binding.tabButton.setOnClickListener {
-            val myIntent = Intent(
-                activity,
-                MainActivity::class.java
-            )
-            startActivity(myIntent)
+        if (arguments?.getInt(ARG_SECTION_NUMBER) === 3){
+            binding.tabButton.setOnClickListener {
+                val myIntent = Intent(
+                    activity,
+                    MainActivity::class.java
+                )
+                startActivity(myIntent)
+            }
         }
+        else {
+            binding.tabButton.visibility = View.INVISIBLE;
+        }
+
+
 
         return root
     }
