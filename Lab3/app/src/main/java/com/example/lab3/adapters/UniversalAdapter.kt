@@ -2,6 +2,7 @@ package com.example.lab3.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import com.example.lab3.databinding.ListItemCharacterBinding
@@ -10,7 +11,7 @@ import com.example.lab3.models.Character
 import com.example.lab3.models.Film
 import com.example.lab3.models.ItemInterface
 
-class UniversalAdapter(private val items: List<ItemInterface>) : RecyclerView.Adapter<UniversalAdapter.BaseViewHolder>() {
+class UniversalAdapter(private val items: LiveData<List<ItemInterface>>) : RecyclerView.Adapter<UniversalAdapter.BaseViewHolder>() {
 
     abstract class BaseViewHolder(binding: ViewBinding) : RecyclerView.ViewHolder(binding.root) {
         abstract fun bind(item: ItemInterface)
@@ -24,9 +25,8 @@ class UniversalAdapter(private val items: List<ItemInterface>) : RecyclerView.Ad
             val character = item as Character
             binding.apply {
                 tvName.text = character.name
-                tvHeight.text = character.height.toString()
-                tvMass.text = character.mass.toString()
-                tvBirth.text = character.birthYear
+                tvRole.text = character.role
+                tvAppearance.text = character.appearance
             }
         }
     }
@@ -39,8 +39,8 @@ class UniversalAdapter(private val items: List<ItemInterface>) : RecyclerView.Ad
             val film = item as Film
             binding.apply {
                 tvTitle.text = film.title
-                tvDate.text = film.date
-                tvOpening.text = film.opening
+                tvDate.text = film.releaseDate
+                tvDescription.text = film.description
             }
         }
     }
@@ -69,13 +69,13 @@ class UniversalAdapter(private val items: List<ItemInterface>) : RecyclerView.Ad
         }
     }
 
-    override fun getItemCount(): Int = items.size
+    override fun getItemCount(): Int = items.value!!.size
 
     override fun onBindViewHolder(holder: BaseViewHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items.value!![position])
     }
 
     override fun getItemViewType(position: Int): Int {
-        return items[position].getItemType()
+        return items.value!![position].getItemType()
     }
 }

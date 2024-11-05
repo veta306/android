@@ -19,7 +19,7 @@
             android:text="@string/name"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_name"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_role"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -30,99 +30,68 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="3dp"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_name"
+            app:layout_constraintEnd_toStartOf="@+id/guideline_role"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_name_hint" />
 
         <TextView
-            android:id="@+id/tv_height_hint"
+            android:id="@+id/tv_role_hint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="3dp"
-            android:text="@string/height"
+            android:text="@string/role"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_height"
-            app:layout_constraintStart_toStartOf="@id/guideline_name"
+            app:layout_constraintEnd_toStartOf="@id/guideline_appearance"
+            app:layout_constraintStart_toEndOf="@id/guideline_role"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_height"
+            android:id="@+id/tv_role"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="3dp"
             android:layout_marginTop="5dp"
             android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_height"
-            app:layout_constraintStart_toStartOf="@id/guideline_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_height_hint" />
+            app:layout_constraintEnd_toStartOf="@id/guideline_appearance"
+            app:layout_constraintStart_toEndOf="@id/guideline_role"
+            app:layout_constraintTop_toBottomOf="@+id/tv_role_hint" />
 
         <TextView
-            android:id="@+id/tv_mass_hint"
+            android:id="@+id/tv_appearance_hint"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="3dp"
-            android:text="@string/mass"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_mass"
-            app:layout_constraintStart_toStartOf="@id/guideline_height"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tv_mass"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="3dp"
-            android:layout_marginTop="5dp"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline_mass"
-            app:layout_constraintStart_toStartOf="@id/guideline_height"
-            app:layout_constraintTop_toBottomOf="@+id/tv_mass_hint" />
-
-        <TextView
-            android:id="@+id/tv_birth_hint"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:text="@string/birth_year"
+            android:text="@string/appearance"
             android:textColor="@android:color/darker_gray"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guideline_mass"
+            app:layout_constraintStart_toEndOf="@id/guideline_appearance"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tv_birth"
+            android:id="@+id/tv_appearance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
             android:layout_marginTop="5dp"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guideline_mass"
-            app:layout_constraintTop_toBottomOf="@+id/tv_birth_hint" />
+            app:layout_constraintStart_toEndOf="@id/guideline_appearance"
+            app:layout_constraintTop_toBottomOf="@id/tv_appearance_hint" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_name"
+            android:id="@+id/guideline_role"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.50" />
+            app:layout_constraintGuide_percent="0.33" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_height"
+            android:id="@+id/guideline_appearance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.65" />
+            app:layout_constraintGuide_percent="0.66" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_mass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.80" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
