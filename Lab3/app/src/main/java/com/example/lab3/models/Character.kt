@@ -19,9 +19,8 @@ import androidx.room.PrimaryKey
 )
 data class Character(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val name: String,
-    val role: String,
-    val appearance: String,
+    val characterName: String,
+    val actorName: String,
     val filmId: Int
 ) : ItemInterface{
     override fun getItemType(): Int {

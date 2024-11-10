@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Films&amp;Characters</string>
     <string name="name">Name:</string>
-    <string name="role">Role:</string>
-    <string name="appearance">Appearance:</string>
+    <string name="actor">Actor:</string>
+    <string name="add_item">Add item</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="actor_name">Actor Name</string>
+    <string name="character_name">Character Name</string>
+    <string name="description">Description</string>
+    <string name="release_date">Release Date</string>
+    <string name="title">Title</string>
 </resources>
