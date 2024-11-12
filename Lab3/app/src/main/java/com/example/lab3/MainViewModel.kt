@@ -41,7 +41,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 Film(title = "The Dark Knight", releaseDate = "2008-07-18", description = "Batman faces his greatest challenge yet, the Joker, in a city plunged into chaos.")
             )
 
-            // repository.insertFilms(films)
+            repository.insertFilms(films)
 
             val characters = listOf(
                 Character(characterName = "Cobb", actorName = "Leonardo DiCaprio", filmId = 1),
@@ -56,7 +56,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 Character(characterName = "Joker", actorName = "Heath Ledger", filmId = 5)
             )
 
-            // repository.insertCharacters(characters)
+            repository.insertCharacters(characters)
 
             getItems()
         }
@@ -64,7 +64,16 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     private fun getItems(){
         viewModelScope.launch {
-            _items.postValue(repository.getAllFilms().plus(repository.getAllCharacters()))
+            val films: List<Film> = repository.getAllFilms()
+            val characters: List<Character> = repository.getAllCharacters()
+
+            val charactersByFilmId = characters.groupBy { it.filmId }
+            val itemsList = mutableListOf<ItemInterface>()
+            films.forEach { film ->
+                itemsList.add(film)
+                itemsList.addAll(charactersByFilmId[film.id] ?: emptyList())
+            }
+            _items.postValue(itemsList)
         }
     }
 

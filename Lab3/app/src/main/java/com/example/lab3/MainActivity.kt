@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     private val viewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // baseContext.deleteDatabase("app_database");
+        baseContext.deleteDatabase("app_database");
 
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
