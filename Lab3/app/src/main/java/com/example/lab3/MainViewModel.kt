@@ -62,7 +62,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    fun getItems(){
+    private fun getItems(){
         viewModelScope.launch {
             _items.postValue(repository.getAllFilms().plus(repository.getAllCharacters()))
         }

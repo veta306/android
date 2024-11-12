@@ -18,12 +18,6 @@ interface CharacterDao {
     @Update
     suspend fun updateCharacter(character: Character)
 
-    @Query("SELECT * FROM characters WHERE id = :id")
-    suspend fun getCharacter(id: Int): Character?
-
-    @Query("SELECT * FROM characters WHERE filmId = :filmId")
-    suspend fun getCharactersByFilm(filmId: Int): List<Character>
-
     @Query("SELECT * FROM characters")
     suspend fun getAllCharacters(): List<Character>
 

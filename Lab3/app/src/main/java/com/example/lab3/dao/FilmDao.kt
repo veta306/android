@@ -18,9 +18,6 @@ interface FilmDao {
     @Update
     suspend fun updateFilm(film: Film)
 
-    @Query("SELECT * FROM films WHERE id = :id")
-    suspend fun getFilm(id: Int): Film?
-
     @Query("SELECT * FROM films")
     suspend fun getAllFilms(): List<Film>
 
