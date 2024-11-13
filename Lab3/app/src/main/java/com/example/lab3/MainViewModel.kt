@@ -15,12 +15,7 @@ import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val database = Room.databaseBuilder(
-        application,
-        AppDatabase::class.java, "app_database"
-    ).build()
-
-    private val repository = AppRepository(database)
+    private val repository = (application as MainApp).repository
 
     private var _items: MutableLiveData<List<ItemInterface>> =
         MutableLiveData<List<ItemInterface>>().apply {
