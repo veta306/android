@@ -28,17 +28,18 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             // repository.clearFilms()
             // repository.clearCharacters()
 
-            val films = listOf(
+            /*val films = listOf(
                 Film(title = "Inception", releaseDate = "2010-07-16", description = "A mind-bending thriller that explores dreams within dreams, directed by Christopher Nolan."),
                 Film(title = "The Matrix", releaseDate = "1999-03-31", description = "A dystopian future where reality is simulated by machines to subjugate humanity."),
                 Film(title = "The Godfather", releaseDate = "1972-03-24", description = "An epic tale of crime and family loyalty within the Italian-American Mafia."),
                 Film(title = "Interstellar", releaseDate = "2014-11-07", description = "An astronaut embarks on a journey to find a new home for humanity in distant galaxies."),
                 Film(title = "The Dark Knight", releaseDate = "2008-07-18", description = "Batman faces his greatest challenge yet, the Joker, in a city plunged into chaos.")
-            )
+            )*/
 
-            repository.insertFilms(films)
+            val films = repository.loadFilms()
+            films?.let { repository.insertFilms(films) }
 
-            val characters = listOf(
+            /*val characters = listOf(
                 Character(characterName = "Cobb", actorName = "Leonardo DiCaprio", filmId = 1),
                 Character(characterName = "Arthur", actorName = "Joseph Gordon-Levitt", filmId = 1),
                 Character(characterName = "Neo", actorName = "Keanu Reeves", filmId = 2),
@@ -49,9 +50,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
                 Character(characterName = "Brand", actorName = "Anne Hathaway", filmId = 4),
                 Character(characterName = "Batman", actorName = "Christian Bale", filmId = 5),
                 Character(characterName = "Joker", actorName = "Heath Ledger", filmId = 5)
-            )
+            )*/
 
-            repository.insertCharacters(characters)
+            val characters = repository.loadCharacters()
+            characters?.let { repository.insertCharacters(characters) }
 
             getItems()
         }

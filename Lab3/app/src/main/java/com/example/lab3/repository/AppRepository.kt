@@ -1,12 +1,31 @@
 package com.example.lab3.repository
 
+import com.example.lab3.api.AppApi
 import com.example.lab3.dao.CharacterDao
 import com.example.lab3.dao.FilmDao
 import com.example.lab3.database.AppDatabase
 import com.example.lab3.models.Character
 import com.example.lab3.models.Film
 
-class AppRepository(private val filmDao: FilmDao, private val characterDao: CharacterDao) {
+class AppRepository(private val filmDao: FilmDao, private val characterDao: CharacterDao, private val appApi: AppApi) {
+
+    suspend fun loadFilms(): List<Film>? {
+        val response = appApi.getFilms()
+        return if (response.isSuccessful) {
+            response.body()
+        } else {
+            null
+        }
+    }
+
+    suspend fun loadCharacters(): List<Character>? {
+        val response = appApi.getCharacters()
+        return if (response.isSuccessful) {
+            response.body()
+        } else {
+            null
+        }
+    }
 
     suspend fun insertFilm(film: Film) {
         filmDao.insertFilm(film)
